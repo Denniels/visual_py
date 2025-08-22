@@ -120,7 +120,6 @@ Apasionado por el aprendizaje práctico, la visualización de datos y el desarro
 📍 Temuco, Chile
 
 ---
-
 ## 📄 Licencia y Uso
 
 Este repositorio es **público** pero **no cuenta con ninguna licencia**. Si deseas utilizar el código, por favor contáctame personalmente a través de los siguientes enlaces:
@@ -128,10 +127,8 @@ Este repositorio es **público** pero **no cuenta con ninguna licencia**. Si des
 <a href="https://www.linkedin.com/in/daniel-andres-mardones-sanhueza-27b73777" target="_blank" style="text-decoration:none;">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linkedin/linkedin-original.svg" alt="LinkedIn" width="24" style="vertical-align:middle;" /> LinkedIn
 </a>
-
+<br>
 <a href="https://github.com/Denniels" target="_blank" style="text-decoration:none;">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" width="24" style="vertical-align:middle;" /> GitHub
 </a>
-
 ---
-
