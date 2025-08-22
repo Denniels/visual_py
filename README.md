@@ -131,4 +131,3 @@ Este repositorio es **público** pero **no cuenta con ninguna licencia**. Si des
 <a href="https://github.com/Denniels" target="_blank" style="text-decoration:none;">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" width="24" style="vertical-align:middle;" /> GitHub
 </a>
----
