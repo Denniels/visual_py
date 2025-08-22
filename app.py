@@ -36,7 +36,7 @@ st.markdown('''
 ''', unsafe_allow_html=True)
 
 # --- Banner principal ---
-st.markdown('<div class="banner"><h1>🍷 Wine Quality ML Dashboard</h1><h3>Análisis Integral y Visualización avanzada</h3></div>', unsafe_allow_html=True)
+st.markdown('<div class="banner"><h1><span translate="no">🍷 Wine Quality ML Dashboard</span></h1><h3><span translate="no">Análisis Integral y Visualización avanzada</span></h3></div>', unsafe_allow_html=True)
 
 # --- Cargar datos y resultados ---
 df = pd.read_csv('data/WineQT.csv')
@@ -58,7 +58,13 @@ st.markdown('<div class="card"><div class="card-title">Presentación</div>'
 			'</div>', unsafe_allow_html=True)
 
 # --- Dashboards por análisis ---
-tabs = st.tabs(["Regresión", "Clasificación", "Clustering", "PCA", "Conclusiones"])
+tab_names = ["Regresión", "Clasificación", "Clustering", "PCA", "Conclusiones"]
+# Sincronización de navegación
+#if 'active_tab' not in st.session_state:
+#	st.session_state['active_tab'] = 0
+#selected_tab = st.radio("Ir a sección:", tab_names, index=st.session_state['active_tab'])
+#st.session_state['active_tab'] = tab_names.index(selected_tab)
+tabs = st.tabs(tab_names)
 
 # --- Regresión ---
 with tabs[0]:
@@ -78,7 +84,7 @@ with tabs[0]:
 		x='alcohol', y='quality', color='quality', tooltip=['alcohol', 'quality']
 	).properties(title='Relación entre Alcohol y Calidad del Vino')
 	st.altair_chart(chart, use_container_width=True)
-	st.info('Matplotlib es ideal para gráficos estáticos y revisiones iniciales. Altair destaca en visualizaciones estadísticas avanzadas.')
+	st.markdown('<div style="background-color:#eaf3fb; border-radius:18px; padding:2rem; margin-top:2rem; color:#154c79; font-size:1.3rem;">Matplotlib es ideal para gráficos estáticos y revisiones iniciales. Altair destaca en visualizaciones estadísticas avanzadas.</div>', unsafe_allow_html=True)
 
 # --- Clasificación ---
 with tabs[1]:
@@ -94,7 +100,7 @@ with tabs[1]:
 	st.pyplot(fig)
 	fig2 = px.scatter(df, x='alcohol', y='quality', color=df['quality'].apply(lambda x: 1 if x >= 7 else 0), title='Alcohol vs Calidad (Clasificación)', labels={'color':'Clase'})
 	st.plotly_chart(fig2, use_container_width=True)
-	st.info('Seaborn facilita el análisis exploratorio y la visualización de correlaciones. Plotly es potente para dashboards interactivos.')
+	st.markdown('<div style="background-color:#eaf3fb; border-radius:18px; padding:2rem; margin-top:2rem; color:#154c79; font-size:1.3rem;">Seaborn facilita el análisis exploratorio y la visualización de correlaciones. Plotly es potente para dashboards interactivos.</div>', unsafe_allow_html=True)
 
 # --- Clustering ---
 with tabs[2]:
@@ -115,7 +121,7 @@ with tabs[2]:
 			st.pyplot(fig)
 			fig2 = px.scatter(df, x='alcohol', y='quality', color='cluster', title='Dispersión de Clústeres (Alcohol vs Calidad)', labels={'cluster':'Clúster'})
 			st.plotly_chart(fig2, use_container_width=True)
-	st.info('Matplotlib permite visualizar agrupaciones y proporciones. Plotly facilita la exploración interactiva de los clusters.')
+	st.markdown('<div style="background-color:#eaf3fb; border-radius:18px; padding:2rem; margin-top:2rem; color:#154c79; font-size:1.3rem;">Matplotlib permite visualizar agrupaciones y proporciones. Plotly facilita la exploración interactiva de los clusters.</div>', unsafe_allow_html=True)
 
 # --- PCA ---
 with tabs[3]:
@@ -145,13 +151,12 @@ with tabs[3]:
 		st.pyplot(fig2)
 	except Exception as e:
 		st.error(f'Error en el análisis PCA: {e}')
-	st.info('Seaborn es excelente para visualizaciones estadísticas y Matplotlib para gráficos de importancia de variables.')
+	st.markdown('<div style="background-color:#eaf3fb; border-radius:18px; padding:2rem; margin-top:2rem; color:#154c79; font-size:1.3rem;">Seaborn es excelente para visualizaciones estadísticas y Matplotlib para gráficos de importancia de variables.</div>', unsafe_allow_html=True)
 
 # --- Conclusiones ---
 with tabs[4]:
 	st.markdown('<div class="card"><div class="card-title">Conclusiones y Estrategias para el Negocio</div>'
 				'Las visualizaciones y modelos muestran que variables como el alcohol, la acidez y los sulfitos son clave para la calidad del vino.<br>'
-				'Cada librería aporta ventajas: Matplotlib para gráficos estáticos, Seaborn para análisis exploratorio, Plotly para dashboards interactivos y Altair para visualizaciones estadísticas avanzadas.<br>'
 				'</div>', unsafe_allow_html=True)
 
 	st.markdown('<div class="card"><div class="card-title">Dashboard de Segmentaciones y Estrategias</div></div>', unsafe_allow_html=True)
@@ -205,15 +210,4 @@ with tabs[4]:
 				'<li><b>Monitoreo continuo:</b> Implementa paneles interactivos para seguimiento en tiempo real de la calidad y variables críticas, facilitando la toma de decisiones ágil y basada en datos.</li>'
 				'</ul></div>', unsafe_allow_html=True)
 
-# --- Estrategia para Streamlit Cloud ---
-st.sidebar.header('Despliegue en Streamlit Cloud')
-st.sidebar.markdown('''
-1. Asegúrate de subir los archivos:
-   - app.py
-   - requirements.txt
-   - data/WineQT.csv
-   - utils/*.json
-2. Verifica que los notebooks hayan generado los archivos de resultados correctamente.
-3. Elige la rama principal y configura el archivo app.py como entrypoint.
-4. Personaliza el banner y los colores desde el código CSS si lo deseas.
-''')
+#st.markdown('<div style="background-color:#eaf3fb; border-radius:18px; padding:2rem; margin-top:2rem; color:#154c79; font-size:1.3rem;">Cada librería aporta ventajas: Matplotlib para gráficos estáticos, Seaborn para análisis exploratorio, Plotly para dashboards interactivos y Altair para visualizaciones estadísticas avanzadas.</div>', unsafe_allow_html=True)
